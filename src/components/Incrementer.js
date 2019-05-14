@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 export default class Incremeter extends PureComponent {
   state = {
-    number: 1
+    number: 0
   };
 
   handleClick = () => {
