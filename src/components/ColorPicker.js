@@ -23,6 +23,7 @@ export default class ColorPicker extends PureComponent {
       width: '100px'
     };
 
+    // somehow separate button component and splotch/div component
     return (
       <>
         <section>
