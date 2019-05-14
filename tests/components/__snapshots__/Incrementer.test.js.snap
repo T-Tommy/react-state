@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Incrementer component renders an Incrementer 1`] = `
+<Fragment>
+  <div>
+    Increment count: 
+    0
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    Increment
+  </button>
+</Fragment>
+`;
