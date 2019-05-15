@@ -7,4 +7,10 @@ describe('App component', () => {
     const wrapper = shallow(<App />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('adds a block', () => {
+    const wrapper = shallow(<App />);
+    wrapper.instance().addBlock();
+    expect(wrapper.state('blocks')).toEqual(2);
+  });
 });

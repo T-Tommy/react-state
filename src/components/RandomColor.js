@@ -6,8 +6,8 @@ export default class RandomColor extends PureComponent {
     trigger: new Date(),
     interval: Math.random() * 1000,
     rotation: (Math.random() * 720) - 360,
-    xpos: (Math.random() * 20) - 10,
-    ypos: (Math.random() * 20) - 10
+    xpos: (Math.random() * 40) - 20,
+    ypos: (Math.random() * 40) - 20
   }
 
   randomColor = () => ({
@@ -23,8 +23,8 @@ export default class RandomColor extends PureComponent {
         trigger: new Date(),
         interval: Math.random() * 1000,
         rotation: (Math.random() * 720) - 360,
-        xpos: (Math.random() * 20) - 10,
-        ypos: (Math.random() * 20) - 10
+        xpos: (Math.random() * 40) - 20,
+        ypos: (Math.random() * 40) - 20
       }), this.state.interval
     );
   }
