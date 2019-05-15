@@ -5,9 +5,13 @@ export default class RandomColor extends PureComponent {
     color: { r: 0, g: 0, b: 0 },
     trigger: new Date(),
     interval: Math.random() * 1000,
-    rotation: (Math.random() * 720) - 360,
-    xpos: (Math.random() * 40) - 20,
-    ypos: (Math.random() * 40) - 20
+    rotation: 0,
+    xpos: 0,
+    ypos: 0,
+    scale: 1,
+    xskew: 0,
+    yskew: 0,
+    radius: 0
   }
 
   randomColor = () => ({
@@ -23,8 +27,11 @@ export default class RandomColor extends PureComponent {
         trigger: new Date(),
         interval: Math.random() * 1000,
         rotation: (Math.random() * 720) - 360,
-        xpos: (Math.random() * 40) - 20,
-        ypos: (Math.random() * 40) - 20
+        xpos: (Math.random() * 100) - 50,
+        ypos: (Math.random() * 100) - 50,
+        scale: Math.random() * 2,
+        xskew: (Math.random() * 90) - 45,
+        yskew: (Math.random() * 90) - 45
       }), this.state.interval
     );
   }
@@ -40,10 +47,22 @@ export default class RandomColor extends PureComponent {
       display: 'inline-block',
       'box-sizing': 'border-box',
       background: `rgb(${r}, ${g}, ${b})`,
-      height: '20vh',
-      width: '20vh',
-      transition: `background ${this.state.interval / 1000}s linear, transform ${this.state.interval / 250}s linear`,
-      transform: `rotate(${this.state.rotation}deg) translate(${this.state.xpos}vh, ${this.state.ypos}vh) rotateX(${this.state.rotation}deg) rotateY(${this.state.rotation}deg) rotateZ(${this.state.rotation}deg)`
+      height: '10vh',
+      width: '10vh',
+      transition: `
+        background ${this.state.interval / 1000}s linear, 
+        transform ${this.state.interval / 100}s ease
+      `,
+      transform: `
+        rotate(${this.state.rotation}deg) 
+        translate(${this.state.xpos}vh, ${this.state.ypos}vh) 
+        rotateX(${this.state.rotation}deg) 
+        rotateY(${this.state.rotation}deg) 
+        rotateZ(${this.state.rotation}deg) 
+        scale(${this.state.scale})
+        skewX(${this.state.xskew}deg)
+        skewY(${this.state.yskew}deg)
+      `
     };
     return <div style={ styles }></div>;
   }
