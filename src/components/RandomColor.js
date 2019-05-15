@@ -5,6 +5,9 @@ export default class RandomColor extends PureComponent {
     color: { r: 0, g: 0, b: 0 },
     trigger: new Date(),
     interval: Math.random() * 1000,
+    rotation: (Math.random() * 720) - 360,
+    xpos: (Math.random() * 20) - 10,
+    ypos: (Math.random() * 20) - 10
   }
 
   randomColor = () => ({
@@ -18,7 +21,10 @@ export default class RandomColor extends PureComponent {
       this.setState({
         color: this.randomColor(),
         trigger: new Date(),
-        interval: Math.random() * 1000
+        interval: Math.random() * 1000,
+        rotation: (Math.random() * 720) - 360,
+        xpos: (Math.random() * 20) - 10,
+        ypos: (Math.random() * 20) - 10
       }), this.state.interval
     );
   }
@@ -36,7 +42,8 @@ export default class RandomColor extends PureComponent {
       background: `rgb(${r}, ${g}, ${b})`,
       height: '20vh',
       width: '20vh',
-      transition: `background ${this.state.interval / 1000}s linear`,
+      transition: `background ${this.state.interval / 1000}s linear, transform ${this.state.interval / 250}s linear`,
+      transform: `rotate(${this.state.rotation}deg) translate(${this.state.xpos}vh, ${this.state.ypos}vh) rotateX(${this.state.rotation}deg) rotateY(${this.state.rotation}deg) rotateZ(${this.state.rotation}deg)`
     };
     return <div style={ styles }></div>;
   }
